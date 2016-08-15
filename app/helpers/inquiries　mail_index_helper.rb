@@ -1,0 +1,2 @@
+module Inquiries　mailIndexHelper
+end
