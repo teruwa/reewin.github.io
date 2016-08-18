@@ -1,5 +1,5 @@
 class Inquiry < ActiveRecord::Base
-    include ActiveModel::Model
+include ActiveModel::Model
  
   attr_accessor :name, :email, :message
  
