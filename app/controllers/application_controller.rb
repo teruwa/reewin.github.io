@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   # ！一つ下の「def after_sign_in_path_for(resource)」はhttp://qiita.com/cigalecigales/items/73d7bd7ec59a001ccd74をもとに独自で勝手にrake routesでパスを調べて書き換えたに
+  # ログイン後のページを変更している
   def after_sign_in_path_for(resource)
         edit_user_registration_path
   end

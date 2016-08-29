@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   devise_for :users
   get 'home/index'
-
   get 'home/show'
+  
+  resources :loginuserposts
+  
+  resources :users, :only => [:show]
 
   root to: "home#index"
   

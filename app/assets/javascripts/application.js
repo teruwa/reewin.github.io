@@ -8,11 +8,13 @@
 // compiled file.
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
+// about supported directives.a
 //
+
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require superhero/loader
 //= require superhero/bootswatch
-//= require turbolinks
+//= require_tree .
 
