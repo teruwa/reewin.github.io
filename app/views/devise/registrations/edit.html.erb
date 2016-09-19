@@ -1,43 +1,224 @@
-<h2><%= resource_name.to_s.humanize %>さんのプロフィールを編集</h2>
+<h1>ここでは各種設定の編集を行います</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<% provide(:title, "Edit user") %>
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <h4>①氏名入力</h4>
+  <%= f.text_field :name, class: 'form-control' %>
+  
+  <br />
+  <div>
+    <h4>②現住所の都道府県</h4>
+    <%= f.select :kentyou_id, options_for_select([["北海道","北海道"],["青森県","青森県"],["岩手県","岩手県"],["宮城県","宮城県"],
+    ["秋田県","秋田県"],["山形県","山形県"],["福島県","福島県"],["茨城県","茨城県"],["栃木県","栃木県"],["群馬県","群馬県"],
+    ["埼玉県","埼玉県"],["千葉県","千葉県"],["東京都","東京都"],["神奈川県","神奈川県"],["新潟県","新潟県"],["富山県","富山県"],
+    ["石川県","石川県"],["福井県","福井県"],["山梨県","山梨県"],["長野県","長野県"],["岐阜県","岐阜県"],["静岡県","静岡県"],
+    ["愛知県","愛知県"],["三重県","三重県"],["滋賀県","滋賀県"],["京都府","京都府"],["大阪府","大阪府"],["兵庫県","兵庫県"],
+    ["奈良県","奈良県"],["和歌山県","和歌山県"],["鳥取県","鳥取県"],["島根県","島根県"],["岡山県","岡山県"],["広島県","広島県"],
+    ["山口県","山口県"],["徳島県","徳島県"],["香川県","香川県"],["愛媛県","愛媛県"],["高知県","高知県"],["福岡県","福岡県"],
+    ["佐賀県","佐賀県"],["長崎県","長崎県"],["熊本県","熊本県"],["大分県","大分県"],["宮崎県","宮崎県"],["鹿児島県","鹿児島県"],["沖縄県","沖縄県"]], selected: current_user.kentyou_id) %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <br />
+  
+  <h4>③メールアドレス</h4>
+  <%= f.text_field :email, class: 'form-control' %>
+  
+  <br />
+          
+  <div>
+    <h4>④メールマガジンの配信を受け取りますか？</h4>
+    <select name="user[magazine]">
+      <option value="1" selected>受けとる
+      <option value="0">受け取らない
+    </select>
   </div>
+  
+  <br />
+      
+  <div class="accordion-group">
+   <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#faq" href="#faqpost_3">▼当サイトの「利用店舗様紹介ページ」にてご自身が経営されている店舗を紹介される方はこちら</a></div>
+    <div id="faqpost_3" class="accordion-body collapse">
+     <div class="accordion-inner">
+       <div class="panel panel-primary">
+        <div class="panel-heading">こちらより下は「利用店舗様紹介ページ」にご自身が経営される店舗などの情報を記載してもよいというユーザー様専用の編集フォームとなります
+  　　　 </div>
+  　　  　  <p>掲載されることを了承されたお客様のみ下の「掲載する」にチェックをいれ、下記フォームに諸情報を入力したのち編集を完了してください</p>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      　　  <div class="radio">
+          <label>
+            <input type="radio" name="user[shopowner]" value="1">
+            掲載する
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="user[shopowner]" value="0">
+            掲載しない/掲載を取りやめる
+          </label>
+        </div>
+  　　  　</div>
+  　　　
+  　　　<br />
+  　　　
+        <h4>店舗名</h4>
+        <%= f.text_field :hitokoto_comment, class: 'form-control' %>    
+        
+        <h4>店舗の都道府県</h4>
+          <select name="user[shopkentyou_id]">
+            <option value="" selected>都道府県
+            <option value="北海道">北海道
+            <option value="青森県">青森県
+            <option value="岩手県">岩手県
+            <option value="宮城県">宮城県
+            <option value="秋田県">秋田県
+            <option value="山形県">山形県
+            <option value="福島県">福島県
+            <option value="茨城県">茨城県
+            <option value="栃木県">栃木県
+            <option value="群馬県">群馬県
+            <option value="埼玉県">埼玉県
+            <option value="千葉県">千葉県
+            <option value="東京都">東京都
+            <option value="神奈川県">神奈川県
+            <option value="新潟県">新潟県
+            <option value="富山県">富山県
+            <option value="石川県">石川県
+            <option value="福井県">福井県
+            <option value="山梨県">山梨県
+            <option value="長野県">長野県
+            <option value="岐阜県">岐阜県
+            <option value="静岡県">静岡県
+            <option value="愛知県">愛知県
+            <option value="三重県">三重県
+            <option value="滋賀県">滋賀県
+            <option value="京都府">京都府
+            <option value="大阪府">大阪府
+            <option value="兵庫県">兵庫県
+            <option value="奈良県">奈良県
+            <option value="和歌山県">和歌山県
+            <option value="鳥取県">鳥取県
+            <option value="島根県">島根県
+            <option value="岡山県">岡山県
+            <option value="広島県">広島県
+            <option value="山口県">山口県
+            <option value="徳島県">徳島県
+            <option value="香川県">香川県
+            <option value="愛媛県">愛媛県
+            <option value="高知県">高知県
+            <option value="福岡県">福岡県
+            <option value="佐賀県">佐賀県
+            <option value="長崎県">長崎県
+            <option value="熊本県">熊本県
+            <option value="大分県">大分県
+            <option value="宮崎県">宮崎県
+            <option value="鹿児島県">鹿児島県
+            <option value="沖縄県">沖縄県
+            </select>
+            <br>
+        <h4>都道府県以降の店舗住所</h4>
+        <%= f.text_field :jyuusyo, class: 'form-control' %>
+        
+        <h4>店舗電話番号</h4>
+        <%= f.text_field :telephone_number, class: 'form-control' %>
+        
+        <h4>店舗についてのコメント</h4>
+        <%= f.text_field :profile_comment, class: 'form-control' %>
+        
+        
+        <%= image_tag resource.avatar.url if resource.avatar %>
+        <%= f.label :サムネイル画像 %>
+        <%= f.file_field :avatar %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= image_tag resource.avatar2.url if resource.avatar2 %>
+        <%= f.label :写真１ %>
+        <%= f.file_field :avatar2 %>
+        
+        <%= image_tag resource.avatar3.url if resource.avatar3 %>
+        <%= f.label :写真２ %>
+        <%= f.file_field :avatar3 %>
+  
+      </div>
+     </div>
+    </div>
+    
+    <div>セキュリティのためアカウントのパスワードを入力し、下記のボタンから設定変更を完了してください</div>
     <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.submit "編集内容を反映", class: "btn btn-primary" %>
+    <% end %>
+    
+   </div>
+ </div>
+      
+
+  <br />
+
+
+  <div class="accordion-group">
+    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#faq" href="#faqpost_1">▼パスワードを変更する場合はこちら</a></div>
+      <div id="faqpost_1" class="accordion-body collapse">
+        <div class="accordion-inner">
+              
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+        
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">パスワードを変更しますか？</h3>
+              ※変更する場合には、
+              <p>①に現在のパスワードを入力し、</p>
+              <p>②と③にそれぞれ新しく設定したいパスワードをご繰り返しで入力ください。</p>
+            </div>
+          </div>
+          
+          <div class="panel-body">
+            <div class="field">
+            ①現在のパスワード
+            <br /><%= f.label :current_password %>・・
+            <%= f.password_field :current_password, autocomplete: "off" %>
+          </div>
+        
+          <div class="field">
+            ②新しく設定するパスワード(6文字以上の半角英数)
+            <br /><%= f.label :password %>・・・・・
+            <%= f.password_field :password, autocomplete: "off" %>
+            <% if @minimum_password_length %>
+              <br />
+              <em>※<%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+          </div>
+        
+          <div class="field">
+            ③確認:もう一度パスワードをお願いします
+            <br /><%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+        
+        
+          <div class="actions">
+            <%= f.submit "Update" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+
+
+  <div class="accordion-group">
+    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#faq" href="#faqpost_2">▼アカウントを消去する場合はこちら</a></div>
+      <div id="faqpost_2" class="accordion-body collapse">
+        <div class="accordion-inner">
+        <h3>アカウントを消去しますか？</h3>
+  
+        <p>下のボタンからアカウントの消去を行います </p>
+        <p>(※消去後のアカウントの復元はできません)</p>
+        <p><%= button_to "アカウント情報を消去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  
+      </div>
+    </div>
   </div>
-<% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>

@@ -9,4 +9,7 @@ class HomeController < ApplicationController
 
   def show
   end
+  
+  def rie
+  end
 end

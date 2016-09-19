@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827140943) do
+ActiveRecord::Schema.define(version: 20160918125601) do
+
+  create_table "announces", force: :cascade do |t|
+    t.string   "title"
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", force: :cascade do |t|
+    t.string   "goods_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "inquiries", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,13 +41,32 @@ ActiveRecord::Schema.define(version: 20160827140943) do
   add_index "loginuserposts", ["user_id", "created_at"], name: "index_loginuserposts_on_user_id_and_created_at"
   add_index "loginuserposts", ["user_id"], name: "index_loginuserposts_on_user_id"
 
+  create_table "news_sends", force: :cascade do |t|
+    t.string   "news_title"
+    t.string   "news_body"
+    t.string   "news_point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "photo"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "good_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["good_id", "created_at"], name: "index_reviews_on_good_id_and_created_at"
+  add_index "reviews", ["good_id"], name: "index_reviews_on_good_id"
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -43,8 +75,21 @@ ActiveRecord::Schema.define(version: 20160827140943) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "name"
+    t.string   "telephone_number"
+    t.string   "jyuusyo"
+    t.string   "hitokoto_comment"
+    t.string   "profile_comment"
+    t.string   "kentyou_id"
+    t.boolean  "admin",                  default: false, null: false
+    t.string   "shopkentyou_id",         default: "f",   null: false
+    t.boolean  "magazine"
+    t.boolean  "shopowner",              default: false, null: false
+    t.string   "avatar"
+    t.string   "avatar3"
+    t.string   "avatar2"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

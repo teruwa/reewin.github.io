@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  news_title: MyString
+  news_body: MyString
+  news_point: MyString
+
+two:
+  news_title: MyString
+  news_body: MyString
+  news_point: MyString

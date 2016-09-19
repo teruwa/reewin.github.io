@@ -1,0 +1,25 @@
+商品<%= @good.goods_name %>の紹介
+<div><%= image_tag "slick/IceWave.jpg" %></div>
+
+<div>説明文</div>
+
+<div>効く症状</div>
+
+
+<a href="/good_use/use_icewave">使い方</a>
+
+
+<div>レビューを投稿：
+    <%= render 'shared/review_form' %>
+    
+    <div>
+    　<% if @good.reviews.any? %>
+    　　<h3>goods (<%= @good.reviews.count %>)</h3>
+          <ol class="microposts">
+            
+            <%= render @good.reviews %>
+    
+          </ol>
+    　<% end %>
+    </div>
+</div>

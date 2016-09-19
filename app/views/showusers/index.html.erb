@@ -1,0 +1,14 @@
+<% @users.each do |users| %>
+
+<div>
+    <h3><%= users.hitokoto_comment %></h3>
+    <%= image_tag(users.avatar) %>
+    <%= users.shopkentyou_id %>
+    <%= users.jyuusyo %>
+    <%= users.telephone_number %>
+    <%= link_to '詳細', showuser_path(users) %>
+    
+</div>
+
+
+<% end %> 

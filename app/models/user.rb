@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
          #:confirmable
          
   has_many :loginuserpost
+  validates :kentyou_id, presence: true
+  
+  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar2, AvatarUploader
+  mount_uploader :avatar3, AvatarUploader
 end

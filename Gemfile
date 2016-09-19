@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,6 +46,15 @@ gem 'therubyracer'
 # エラーメッセージを日本語化するgem「rails-i18n」
 gem 'rails-i18n'
 
+gem 'pg', group: :production
+
+# デバッグツール「pry」
+gem 'pry-byebug', group: :development
+
+# 画像アップロードのgem
+gem 'carrierwave'
+# クラウド上にファイルを保存するHerokuのアドオン
+gem 'cloudinary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

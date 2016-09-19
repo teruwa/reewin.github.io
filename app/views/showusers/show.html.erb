@@ -1,0 +1,97 @@
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+</head>
+
+<body>
+    <header>
+        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+        <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+    </header>
+    
+    
+    
+    
+    <div><h1><%= @user.hitokoto_comment %></h1></div>
+    
+    <a href="<%= asset_path "photo01.jpg" %>" data-gallery>
+  <img src="<%= asset_path "photo01.jpg" %>" class="img-responsive" style="margin-bottom:30px;">
+</a>
+        <%= image_tag(@user.avatar) %>
+    <%= image_tag(@user.avatar2) %>
+    <%= image_tag(@user.avatar3) %>
+    
+    <div>電話番号：<%= @user.telephone_number %></div>
+    
+    <div>
+        住所：<%= @user.shopkentyou_id %>
+        <%= @user.jyuusyo %>
+    </div>
+    
+    <%= @user.profile_comment %>
+    
+    
+
+
+
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+  <!-- The container for the modal slides -->
+  <div class="slides"></div>
+  <!-- Controls for the borderless lightbox -->
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="close">×</a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+  <!-- The modal dialog, which will be used to wrap the lightbox content -->
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body next"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left prev">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Previous
+          </button>
+          <button type="button" class="btn btn-primary next">
+            Next
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="links">
+    <a href="images/photo01.jpg" data-gallery>
+        <img src="images/photo01.jpg" class="img-responsive" style="margin-bottom:30px;">
+    </a>
+    <a href="images/banana.jpg" title="Banana" data-gallery>
+        <img src="images/thumbnails/banana.jpg" alt="Banana">
+    </a>
+    <a href="images/apple.jpg" title="Apple" data-gallery>
+        <img src="images/thumbnails/apple.jpg" alt="Apple">
+    </a>
+    <a href="images/orange.jpg" title="Orange" data-gallery>
+        <img src="images/thumbnails/orange.jpg" alt="Orange">
+    </a>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>

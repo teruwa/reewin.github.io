@@ -13,7 +13,7 @@ class LoginuserpostsController < ApplicationController
   
 # 名前はhomeだが、ログインしている場合に新しいloginuserpostクラスのインスタンスをuser_idを紐付けた状態で初期化させてる。  
   def home
-    @micropost = current_user.microposts.build if logged_in?
+    @loginuserpost = current_user.loginuserposts.build if logged_in?
   end
   
   private

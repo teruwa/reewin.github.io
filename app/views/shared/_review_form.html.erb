@@ -1,0 +1,13 @@
+<%= form_for(@review) do |f| %>
+<%= hidden_field_tag :good_id, @good.id %>
+
+
+  <div class="field">
+    
+<%= f.text_area :content, placeholder: "レビューはここにお書きください" %>
+
+  </div>
+  
+<%= f.submit "Post", class: "btn btn-primary" %>
+
+<% end %>

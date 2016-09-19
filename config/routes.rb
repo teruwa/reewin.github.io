@@ -1,13 +1,47 @@
 Rails.application.routes.draw do
+  # get 'パス(※home/indexなど)' => 'home#index(※「コントローラー名#その中のアクション名」の形)'
+  # これら上記のような「パス」と「コントローラー名＃アクション名」が等しいときの省略的な記述が⇨「get 'home/index'」
+  # ※パラメーターをパスの中に埋め込みたい時の記述例「get 'home/:id/:email' => 'home#show'」
+  # ※get "lesson/:action(/:name)"なども
   get 'users/new'
 
   devise_for :users
   get 'home/index'
   get 'home/show'
   
+  get 'home/rie'
+  get 'home/renrakusaki'
+  get 'newss/index'
+  resources :newss
+  
+  get 'announces/index'
+  resources :announces
+  
+  resources :showusers, only: [:index, :show]
+  
+  
+  get 'good_use/use_energy_enhancer'
+  get 'good_use/use_icewave'
+  get 'good_use/use_silentnights'
+  get 'good_use/use_sp6complete'
+  get 'good_use/use_y_age_aeon'
+  get 'good_use/use_y_age_carnosine'
+  get 'good_use/use_y_age_glutathione'
+  get 'good_use/use_aravida'
+  
+  get 'good/all_goods'
+  get 'good/energy_enhancer'
+  get 'good/icewave'
+  get 'good/silentnights'
+  get 'good/sp6complete'
+  get 'good/y_age_aeon'
+  get 'good/y_age_carnosine'
+  get 'good/y_age_glutathione'
+  get 'good/aravida'
+  
   resources :loginuserposts
   
-  resources :users, :only => [:show]
+  resources :reviews
 
   root to: "home#index"
   

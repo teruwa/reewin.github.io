@@ -1,0 +1,17 @@
+<% if current_user.admin? %>
+    <%= form_for(@announce) do |f| %>
+    
+      題名:
+      
+    <%= f.text_field :title %>
+    
+    <br />
+      内容:
+      
+    <%= f.text_area :body %>
+    
+      
+    <%= f.submit %>
+    
+    <% end %>
+<% end %>
