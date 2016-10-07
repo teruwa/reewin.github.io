@@ -1,14 +1,15 @@
-<% @users.each do |users| %>
 
-<div>
-    <h3><%= users.hitokoto_comment %></h3>
-    <%= image_tag(users.avatar) %>
-    <%= users.shopkentyou_id %>
-    <%= users.jyuusyo %>
-    <%= users.telephone_number %>
-    <%= link_to '詳細', showuser_path(users) %>
-    
-</div>
-
-
-<% end %> 
+<%= button_to "北海道", {:action => "hokkaido"} , {method: :get, class: "btn btn-danger"} %>
+<%= button_to "東北",  {:action => "touhoku"}, {method: :get, class: "btn btn-danger"} %>
+<%= button_to "関東",  {:action => "kantou"}, {method: :get, class: "btn btn-danger"} %>
+<%= button_to "中部",  {:action => "cyuubu"}, {method: :get, class: "btn btn-danger"} %>
+<%= button_to "近畿",  {:action => "kinki"}, {method: :get, class: "btn btn-danger"} %>
+<%= button_to "中国",  {:action => "cyuugoku"}, {method: :get, class: "btn btn-danger"} %>
+<%= button_to "四国",  {:action => "sikoku"}, {method: :get, class: "btn btn-danger"} %>
+<%= button_to "九州",  {:action => "kyuusyuu"}, {method: :get, class: "btn btn-danger"} %>
+  
+  <div id="news-list">
+   <%#= page_entries_info @users %>
+      <%= render @users %>
+   <%= paginate @users  %>  
+  </div>

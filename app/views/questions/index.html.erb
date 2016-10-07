@@ -1,0 +1,21 @@
+<h1>よくある質問集</h1>
+<% @questions.each do |question| %>
+<div>
+  質問
+<%= question.question %>
+<br>
+  回答:
+<%= question.answer %>
+        (
+<%= link_to "edit" , edit_question_path(question) %>
+<%= link_to "destroy" , question , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+)
+      <br>
+<% end %>
+</div>
+
+
+
+<% if current_user.admin? %>
+    <%= render 'form' %>
+<% end %>

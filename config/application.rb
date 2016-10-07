@@ -23,5 +23,10 @@ module Reewin
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+  
+  # lib配下のパスを読み込む << ここを追加
+    config.autoload_paths += %W(#{config.root}/lib)
   end
+  
+
 end

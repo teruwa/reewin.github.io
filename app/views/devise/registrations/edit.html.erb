@@ -6,7 +6,7 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <h4>①氏名入力</h4>
-  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.text_field :name, :placeholder => "フルネームを入力してください", required: true, class: 'form-control' %>
   
   <br />
   <div>
@@ -23,7 +23,7 @@
   <br />
   
   <h4>③メールアドレス</h4>
-  <%= f.text_field :email, class: 'form-control' %>
+  <%= f.text_field :email, required: true, class: 'form-control' %>
   
   <br />
           
@@ -48,7 +48,7 @@
 
       　　  <div class="radio">
           <label>
-            <input type="radio" name="user[shopowner]" value="1">
+            <input type="radio" name="user[shopowner]" value="1" >
             掲載する
           </label>
         </div>
@@ -63,7 +63,7 @@
   　　　<br />
   　　　
         <h4>店舗名</h4>
-        <%= f.text_field :hitokoto_comment, class: 'form-control' %>    
+        <%= f.text_field :hitokoto_comment, :placeholder => "LifeWaveを利用されている店舗名を入力ください", class: 'form-control' %>    
         
         <h4>店舗の都道府県</h4>
           <select name="user[shopkentyou_id]">
@@ -118,13 +118,13 @@
             </select>
             <br>
         <h4>都道府県以降の店舗住所</h4>
-        <%= f.text_field :jyuusyo, class: 'form-control' %>
+        <%= f.text_field :jyuusyo,:placeholder => "例:〇〇区△△1-2", class: 'form-control' %>
         
         <h4>店舗電話番号</h4>
         <%= f.text_field :telephone_number, class: 'form-control' %>
         
         <h4>店舗についてのコメント</h4>
-        <%= f.text_field :profile_comment, class: 'form-control' %>
+        <%= f.text_field :profile_comment, :placeholder => "店舗に関する詳しい情報をお書きください", class: 'form-control' %>
         
         
         <%= image_tag resource.avatar.url if resource.avatar %>

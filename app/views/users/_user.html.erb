@@ -1,0 +1,12 @@
+        
+        
+        <div>
+            <h3><%= user.hitokoto_comment %></h3>
+            <%= image_tag(user.avatar) %>
+            <%= user.shopkentyou_id %>
+            <%= user.jyuusyo %>
+            <%= user.telephone_number %>
+            <%= link_to '詳細', showuser_path(user) %>
+        </div>
+        
+        

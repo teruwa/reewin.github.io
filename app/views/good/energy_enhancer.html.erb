@@ -1,15 +1,17 @@
-商品<%= @good.goods_name %>の紹介
+<%= @good.goods_name %>の紹介
 <div><%= image_tag "slick/Energy Enhancer.jpg" %></div>
 
-<div>説明文</div>
-
+<div>
+  <h4>世界中のトップアスリートが最高の潜在力をもって競争に勝つためにEnergy Enhancer を愛用していることには理由があります。</h4>
+    <p>それは、本当に効果があるからです。</p>
+    <p>実際にライフ・ウェーブの研究では、数分間の使用でエネルギーと持久力が高まり、脂肪燃焼率が 20% 以上も高まることが証明されています。</p>
+</div>
 <div>効く症状</div>
 
 
 <div><a href="/good_use/use_energy_enhancer">使い方</a></div>
 
-
-<div>レビューを投稿：
+<div>
     <%= render 'shared/review_form' %>
     
     <div>

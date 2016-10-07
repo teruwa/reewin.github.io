@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'symptoms/index'
+
+  get 'userinfos/index'
+  resources :userinfos
+
+  resources :posts
+  get 'questions/index'
+  resources :questions , except: [:index, :new]
+
   # get 'パス(※home/indexなど)' => 'home#index(※「コントローラー名#その中のアクション名」の形)'
   # これら上記のような「パス」と「コントローラー名＃アクション名」が等しいときの省略的な記述が⇨「get 'home/index'」
   # ※パラメーターをパスの中に埋め込みたい時の記述例「get 'home/:id/:email' => 'home#show'」
@@ -17,8 +26,26 @@ Rails.application.routes.draw do
   get 'announces/index'
   resources :announces
   
-  resources :showusers, only: [:index, :show]
-  
+  get 'showusers/hokkaido'
+  get 'showusers/touhoku'
+  get 'showusers/kantou'
+  get 'showusers/cyuubu'
+  get 'showusers/kinki'
+  get 'showusers/cyuugoku'
+  get 'showusers/sikoku'
+  get 'showusers/kyuusyuu'
+  resources :showusers, only: [:index, :show] do
+    collection do
+    get 'hokkaido'
+    get 'touhoku'
+    get 'kantou'
+    get 'cyuubu'
+    get 'kinki'
+    get 'cyuugoku'
+    get 'sikoku'
+    get 'kyuusyuu'
+  end
+  end
   
   get 'good_use/use_energy_enhancer'
   get 'good_use/use_icewave'
@@ -29,6 +56,9 @@ Rails.application.routes.draw do
   get 'good_use/use_y_age_glutathione'
   get 'good_use/use_aravida'
   
+  
+  post 'showusers/news_list'
+  
   get 'good/all_goods'
   get 'good/energy_enhancer'
   get 'good/icewave'
@@ -38,6 +68,9 @@ Rails.application.routes.draw do
   get 'good/y_age_carnosine'
   get 'good/y_age_glutathione'
   get 'good/aravida'
+  resources :good , except: [:index, :new]
+  
+  resources :symptom , except: [:index, :new]
   
   resources :loginuserposts
   

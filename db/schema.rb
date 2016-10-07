@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918125601) do
+ActiveRecord::Schema.define(version: 20161006135839) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160918125601) do
     t.string   "goods_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "symptom"
   end
 
   create_table "inquiries", force: :cascade do |t|
@@ -50,6 +51,21 @@ ActiveRecord::Schema.define(version: 20160918125601) do
     t.string   "photo"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "subject"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "good_id"
     t.text     "content"
@@ -59,6 +75,13 @@ ActiveRecord::Schema.define(version: 20160918125601) do
 
   add_index "reviews", ["good_id", "created_at"], name: "index_reviews_on_good_id_and_created_at"
   add_index "reviews", ["good_id"], name: "index_reviews_on_good_id"
+
+  create_table "symptoms", force: :cascade do |t|
+    t.string   "symptom"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "User_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

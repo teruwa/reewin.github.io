@@ -45,11 +45,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => 587,
+    :address => 'smtp.gmail.com',
+    :port => '587',
     :domain => 'smtp.gmail.com',
-    :user_name => "lifewaverie@gmail.com",
-    :password => "morkcqgjuytsmqdu",
-    :authentication => 'login',
+    :authentication => 'plain',
+    :user_name => 'lifewavejp.2016@gmail.com',
+    :password => 'life20wave16jp'
+    
   }
 end

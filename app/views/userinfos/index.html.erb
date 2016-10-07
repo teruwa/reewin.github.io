@@ -1,0 +1,79 @@
+<h1>ユーザー一覧</h1>
+<div>
+使い方：
+<br>
+①お使いのPCがwindowsの場合・・・
+キーボードの[control]+[F]でページ内ページ内検索ができます
+<br>
+②お使いのPCがMacの場合・・・キーボードの[coommand+[F]でページ内ページ内検索ができます
+<br>
+・・・メモ・・・
+<br>
+例えば名前が「田中太郎」のユーザーの情報を検索する場合、検索バーに田中太郎と入力していただいてEnterキーを押せば検索できます。複数人田中太郎という名前のユーザーがいる場合もう一度エンターを押せば次の田中太郎という名前のユーザーの情報が見れます。
+<br>
+名前いがいにもメールアドレスがわかっている場合はアドレスを、住所がわかっている場合は住所を入力していただければ検索可能です
+</div>
+<div>
+「利用者様一覧ページ」に不適切なユーザーが表示されている場合はこのページでそのユーザーを見つけて「掲載しない」のチェックボックスにチェックをつけて「更新する」ボタンを押してください。
+<br>
+「利用者様一覧ページ」に情報を記載するかどうか、の項目に「false」と書かれていれば非表示になっています、再度掲載を許可する場合は「掲載する」にチェックをいれて更新するボタンをおしてください。trueになっていれば掲載されています
+</div>
+<hr>
+
+<% @userinfos.each do |userinfos| %>
+
+　ユーザーの現住所：
+<%= userinfos.kentyou_id %>
+<br>
+
+  名前:
+<%= userinfos.name %>
+<br>
+
+  メールアドレス：
+<%= userinfos.email %>
+<br>
+
+　メールマガジンを受け取る気があるか(※trueなら受け取る気あり、faiseならなし)：
+<%= userinfos.magazine %>
+<br>
+
+　「利用者様一覧ページ」に情報を記載するかどうか(※trueなら記載する、faiseなら記載しない)：
+<%= userinfos.shopowner %>
+<br>
+
+　ユーザーの店舗名：
+<%= userinfos.hitokoto_comment %>
+<br>
+
+　ユーザーの保有店舗の住所：
+<%= userinfos.shopkentyou_id %> <%= userinfos.jyuusyo %>
+<br>
+
+　店舗の電話番号：
+<%= userinfos.telephone_number %>
+<br>
+
+　店舗についての情報：
+<%= userinfos.profile_comment %>
+<br>
+
+<%= form_for(userinfos, url: userinfo_path(userinfos.id), html: {method: :put}) do |f| %>
+  <div class="radio">
+      <p>「利用者様紹介」ページに情報を</p>
+          <label>
+            <input type="radio" name="user[shopowner]" value="1" >
+            掲載する
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="user[shopowner]" value="0">
+            掲載しない/掲載を取りやめる
+          </label>
+        </div>
+    <%= f.submit %>
+    
+<% end %>
+<hr>
+<% end %>

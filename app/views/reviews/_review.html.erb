@@ -1,5 +1,8 @@
 <li id="review-<%= review.id %>">
   <%= review.content %>
+  <% if current_user.admin? %>
+  <%= link_to "destroy" , review , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+  <% end %>
 </li>
 
 

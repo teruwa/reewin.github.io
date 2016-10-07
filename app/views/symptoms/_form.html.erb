@@ -1,0 +1,9 @@
+<%= form_for(@symptom, :url => {:controller => :good, :action => :create}) do |f| %>
+
+  効く症状
+  
+<%= f.text_field :symptom %>
+
+<%= f.submit %>
+
+<% end %>

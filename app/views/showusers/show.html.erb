@@ -1,26 +1,12 @@
-<head>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
-</head>
-
-<body>
-    <header>
-        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-        <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
-    </header>
-    
-    
-    
-    
     <div><h1><%= @user.hitokoto_comment %></h1></div>
     
-    <a href="<%= asset_path "photo01.jpg" %>" data-gallery>
-  <img src="<%= asset_path "photo01.jpg" %>" class="img-responsive" style="margin-bottom:30px;">
-</a>
-        <%= image_tag(@user.avatar) %>
-    <%= image_tag(@user.avatar2) %>
-    <%= image_tag(@user.avatar3) %>
+    <div id="links">
+        <%= link_to image_tag(@user.avatar.url , class: "img-responsive" , style: "margin-bottom:30px;") , @user.avatar.url ,"data-gallery" => "data-gallery" %>
+        <%= link_to image_tag(@user.avatar2.url , class: "img-responsive" , style: "margin-bottom:30px;") , @user.avatar2.url ,"data-gallery" => "data-gallery" %>
+        <%= link_to image_tag(@user.avatar3.url , class: "img-responsive" , style: "margin-bottom:30px;") , @user.avatar3.url ,"data-gallery" => "data-gallery" %>
+    </div>
+    
+    
     
     <div>電話番号：<%= @user.telephone_number %></div>
     
@@ -73,25 +59,5 @@
 
 
 
-<div id="links">
-    <a href="images/photo01.jpg" data-gallery>
-        <img src="images/photo01.jpg" class="img-responsive" style="margin-bottom:30px;">
-    </a>
-    <a href="images/banana.jpg" title="Banana" data-gallery>
-        <img src="images/thumbnails/banana.jpg" alt="Banana">
-    </a>
-    <a href="images/apple.jpg" title="Apple" data-gallery>
-        <img src="images/thumbnails/apple.jpg" alt="Apple">
-    </a>
-    <a href="images/orange.jpg" title="Orange" data-gallery>
-        <img src="images/thumbnails/orange.jpg" alt="Orange">
-    </a>
-</div>
 
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-</body>
