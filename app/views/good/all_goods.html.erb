@@ -13,208 +13,37 @@
    </header>
    
    <main>
-    <div class="container-fluid">
-      <div class="row">
-        <article class="col-sm-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Energy Enhancer</h3>
-              </div>
-              <div class="panel-body">
-                <span>
-                    <%= link_to image_tag("slick/Energy Enhancer.jpg", { :border => '0', :alt => 'エナジーエンハンサー'}),  good_energy_enhancer_path, :target=>["_blank"] %>
-                </span>
-                <div>
-                   <p>身体パフォーマンスを向上させる。</p>
-                   <p>効果時の脂肪燃焼率が20%以上あがる</p> 
-                   <p>エネルギーと持久力が高まる</p>
-                   <p>集中力を向上</p>
-                   <p>頭痛への効果</p>
-                </div>
-                <div>
-                  <%= render 'index' %>
-                  <%= render '/symptoms/form' %>
-                </div>
-              </div>
-            </div>
-        </article>
-        
-        
-        <article class="col-sm-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Ice Wave</h3>
-              </div>
-              <div class="panel-body">
-                <span>
-                    <%= link_to image_tag("slick/IceWave.jpg", { :border => '0', :alt => 'アイスウェーブ'}),  good_icewave_path, :target=>["_blank"] %>
-                </span>
-                <div>
-                   <p>痛み止め全般</p>
-                   <p>膝・腰・坐骨神経痛・背痛・頭痛・etc...など多岐多岐に渡る痛みへの効能</p>
-                </div>
-                <div>
-                  <%= render 'index' %>
-                  <%= render '/symptoms/form' %>
-                </div>
-              </div>
-            </div>
-        </article>
-        
-      </div>
-    </div>
-        
+     <div>
+       現在絞り込び表示しているタグ:<%=  params[:symptom] %>
+     </div>
     
-    
-    <div class="container-fluid">
-      <div class="row">            
-        <article class="col-sm-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Silent Nights</h3>
-              </div>
-              <div class="panel-body">
-                <span>
-                    <%= link_to image_tag("slick/Silent Nights.jpg", { :border => '0', :alt => 'サイレントナイト'}),  good_silentnights_path, :target=>["_blank"] %>
-                </span>
-                <div>
-                   <p>良質な眠りを促進させる。</p> 
-                   <p>寝つきが悪い、睡眠時間が短い、全身への痛みなど</p>
-                   <p>睡眠薬に頼らないと眠れない日々からの離脱</p>
-                </div>
-                <div>
-                  <%= render 'index' %>
-                  <%= render '/symptoms/form' %>
-                </div>
-              </div>
-            </div>
-        </article>
+        <% @goods.each do |good| %>
         
-        <article class="col-sm-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">SP6 Complete</h3>
+          <article class="col-sm-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <%= good.goods_name %>
+              </h3>
+            </div>
+          
+            <div class="panel-body">
+              <span>
+                <%= image_tag good.photo if good.photo.present?%>
+              </span>
+              
+              <div>
+                <%= simple_format(good.text) %>
               </div>
-              <div class="panel-body">
-                <span>
-                    <%= link_to image_tag("slick/SP6 Complete.jpg", { :border => '0', :alt => 'SP6'}),  good_sp6complete_path, :target=>["_blank"] %>
-                </span>
-                <div>
-                   <p>空腹感を抑え、食事量の制限に役立つ</p> 
-                   <p>ダイエットに対する補助</p>
-                </div>
-                <div>
-                  <%= render 'index' %>
-                  <%= render '/symptoms/form' %>
-                </div>
+              
+              <div>
+                <%= render 'index' , good:  good %>
+                <%= render 'form' , good:  good %>
               </div>
             </div>
-        </article>    
-        
-      </div>
-    </div>
-    
-    
-    
-    <div class="container-fluid">
-      <div class="row">            
-        <article class="col-sm-6">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title">Y-Age Aeon</h3>
-              </div>
-              <div class="panel-body">
-                <span>
-                    <%= link_to image_tag("slick/Y-Age Aeon.jpg", { :border => '0', :alt => 'イオン'}),  good_y_age_aeon_path, :target=>["_blank"] %>
-                </span>
-                <div>
-                   <p>自律神経機能のバランスを整える</p>
-                   <p>ストレスの軽減への効果</p>
-                   <p>炎症を抑える</p>
-                   <p>他製品との併用によりその製品の効果が上昇</p>
-                </div>
-                <div>
-                  <%= render 'index' %>
-                  <%= render '/symptoms/form' %>
-                </div>
-              </div>
-            </div>
-        </article>    
-            
-        <article class="col-sm-6">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title">Y-Age Carnosine</h3>
-              </div>
-              <div class="panel-body">
-                <span>
-                    <%= link_to image_tag("slick/Y-Age Carnosine.jpg", { :border => '0', :alt => 'カルノシン'}),  good_y_age_carnosine_path, :target=>["_blank"] %>
-                </span>
-                <div>
-                   <p>筋力と柔軟性を高める</p>
-                   <p>持久力の向上</p>
-                   <p>再生能力が高くなる</p>
-                </div>
-                <div>
-                  <%= render 'index' %>
-                  <%= render '/symptoms/form' %>
-                </div>
-              </div>
-            </div>
-        </article>
-      </div>
-    </div>
-            
-            
-            
-    <div class="container-fluid">
-      <div class="row">  
-        <article class="col-sm-6">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title">Y-Age Glutathione</h3>
-              </div>
-              <div class="panel-body">
-                <span>
-                    ><%= link_to image_tag("slick/Y-Age_Glutathione.jpg", { :border => '0', :alt => 'グルタチオン'}),  good_y_age_glutathione_path, :target=>["_blank"] %>
-                </span>
-                <div>
-                   <p>健康増進</p> 
-                   <p>免疫力を高める</p>
-                   <p>ニキビ抑制</p>
-                </div>
-                <div>
-                  <%= render 'index' %>
-                  <%= render '/symptoms/form' %>
-                </div>
-              </div>
-            </div>
-        </article>
-        
-        <article class="col-sm-6">
-              <div class="panel panel-warning">
-                <div class="panel-heading">
-                    <h3 class="panel-title">ALAVIDA</h3>
-                </div>
-                <div class="panel-body">
-                    <span>
-                        <%= link_to image_tag("slick/Aravida.jpg", { :border => '0', :alt => 'アラヴィダ'}),  good_aravida_path, :target=>["_blank"] %>
-                    </span>
-                    <div>
-                       <p>酸化によるストレスを軽減し、体内mの抗酸化物質を助け、内側から潤いを与える。</p>
-                       <p>デイリーリー：天然の抗酸化物質、米ぬかオイルに含まれる必須油が潤いをもたらします</p>
-                       <p>ナイトリー：じ自然回復を助けミルクペプチドが、お肌のハリを改善する。</p>
-                    </div>
-                    <div>
-                      <%= render 'index' %>
-                      <%= render '/symptoms/form' %>
-                    </div>
-                </div>
-              </div>
-        </article>
-        
-      </div>
-    </div>
+          </div>
+          </article>
+        <% end %>
     
    </main>
 

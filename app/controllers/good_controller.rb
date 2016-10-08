@@ -31,8 +31,11 @@ class GoodController < ApplicationController
   end
  
  def all_goods
-  @good = Good.new
-  @goods = Good.all
+  if params[:symptom].present?
+    @goods = Good.tagged_with(params[:symptom])
+  else
+    @goods = Good.all
+  end
  end
  
  def energy_enhancer
@@ -78,7 +81,7 @@ class GoodController < ApplicationController
  
  private
   def good_params
-    params.require(:good).permit(:goods_name, :symptom)
+    params.require(:good).permit(:goods_name, :symptom_list)
   end
  
  def set_good

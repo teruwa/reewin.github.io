@@ -1,0 +1,10 @@
+<%= form_for(good) do |symptom| %>
+  <div class="field">
+    <%= symptom.label :symptom_list, "※症状を追加する際はカンマ「,」で区切ってください" %><br>
+    <%= text_field_tag 'good[symptom_list]', good.symptom_list.join(',') %>
+  </div>
+  
+  <div class="actions">
+    <%= symptom.submit %>
+  </div>
+<% end %>

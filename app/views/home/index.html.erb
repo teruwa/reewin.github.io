@@ -102,8 +102,10 @@
     </div>
     
     <footer style="background-color:gray">
+      <% if user_signed_in? %>
       <% if current_user.admin? %>
       　<a href="/userinfos" class="btn btn-default">ユーザー一覧</a>
+      <% end %>
       <% end %>
     </footer>
   

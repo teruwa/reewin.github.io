@@ -1,10 +1,5 @@
 <h5>効果のある症状：</h5>
-<% @goods.each do |good| %>
-
-<%= good.symptom %>　
-(
-<%= link_to "edit" , edit_good_path(good) %>
-<%= link_to "destroy" , good , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-)
+<% good.symptom_list.each do |symptom| %>
+  <%= link_to symptom , good_all_goods_path(symptom: symptom) %>
   <br>
 <% end %>
