@@ -1,17 +1,15 @@
 <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-1" style="background-color:red;">左空白</div>
-        <div class="col-sm-10">
+        <div class="col-sm-12">
           <nav>
             <%= render 'layouts/header' %>
           </nav>
           
-          <div class="contentsarea">
             
             
            <% @news_sends.each do |news_sends| %>
 
-                
+           <div class="contentsarea">  
               <h3><%= news_sends.news_title %></h3>
               <br>
                 
@@ -19,24 +17,28 @@
               <br>
               　開催地：
               <%= news_sends.news_point %>
-              <%= image_tag(news_sends.photo.url) %>
+              <br>
+              <div>
+                <%= image_tag(news_sends.photo.url) %>
+              </div>
               
                 <br>
-                <% if current_user.admin? %>  
-                  (<%= link_to "edit" , edit_newss_path(news_sends) %>
-                  <%= link_to "destroy" , newss_path(news_sends) , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>)
+                <div>
+                  <% if user_signed_in? %>
+                    <% if current_user.admin? %>  
+                      (<%= link_to "edit" , edit_newss_path(news_sends) %>
+                      <%= link_to "destroy" , newss_path(news_sends) , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>)
+                    <% end %>
                   <% end %>
+                </div>
+           </div>
            <% end %> 
                         
-            
-          </div>
         </div>
-        <div class="col-sm-1" style="background-color:yellow;">右空白</div>
       </div>
-    </div>
+</div>
     
     
-    てすと
     
 <footer style="background-color:gray">Footer</footer>  
 

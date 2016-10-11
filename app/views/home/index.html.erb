@@ -1,5 +1,9 @@
 <head>
-  
+  <script type ="text/javascript">
+    <!--
+     alert("test");
+    -->
+  </script>
   
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -16,44 +20,44 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-         <%= image_tag "slick/Energy Enhancer.jpg" %>
+         <%= image_tag("slick/Energy Enhancer.jpg", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Energy Enhancer</h1>
-            <p>一言説明文</p>
+            <p>あなたに、活力を。</p>
         </div>
       </div>
       <div class="item">
-        <%= image_tag "slick/IceWave.jpg" %>
+        <%= image_tag("slick/IceWave.jpg", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>IceWave</h1>
         </div>
       </div>
       <div class="item">
-        <%= image_tag "slick/Silent Nights.jpg" %>
+        <%= image_tag("slick/Silent Nights.jpg", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Silent Nights</h1>
         </div>
       </div>
       <div class="item">
-        <%= image_tag "slick/SP6 Complete.jpg" %>
+        <%= image_tag("slick/SP6 Complete.jpg", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>SP6 Complete</h1>
         </div>
       </div>
       <div class="item">
-        <%= image_tag "slick/Y-Age Aeon.jpg" %>
+        <%= image_tag("slick/Y-Age Aeon.jpg", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Y-Age Aeon</h1>
         </div>
       </div>
       <div class="item">
-        <%= image_tag "slick/Y-Age Carnosine.jpg" %>
+        <%= image_tag("slick/Y-Age Carnosine.jpg", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Y-Age Carnosine</h1>
         </div>
       </div>
       <div class="item">
-        <%= image_tag "slick/Y-Age_Glutathione.jpg" %>
+        <%= image_tag("slick/Y-Age_Glutathione.jpg", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Glutathione</h1>
         </div>
@@ -77,35 +81,33 @@
   
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-1" style="background-color:red;">左空白</div>
-        <div class="col-sm-10">
+        <div class="col-sm-12">
           <nav>
             <%= render 'layouts/header' %>
           </nav>
         </div>
-        <div class="col-sm-1" style="background-color:yellow;">右空白</div>
       </div>
     </div>
     
     
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-1" style="background-color:red;">左空白</div>
+        <div class="col-sm-1"></div>
         <div class="col-sm-10">
           <div class="contentsarea">
             <h1>Home#index</h1>
             <p>Find me in app/views/home/index.html.erb</p>
             </div>
           </div>
-        <div class="col-sm-1" style="background-color:yellow;">右空白</div>
+        <div class="col-sm-1"></div>
       </div>
     </div>
     
     <footer style="background-color:gray">
       <% if user_signed_in? %>
-      <% if current_user.admin? %>
-      　<a href="/userinfos" class="btn btn-default">ユーザー一覧</a>
-      <% end %>
+        <% if current_user.admin? %>
+        　<a href="/userinfos" class="btn btn-default">ユーザー一覧</a>
+        <% end %>
       <% end %>
     </footer>
   

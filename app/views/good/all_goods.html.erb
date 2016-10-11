@@ -13,13 +13,13 @@
    </header>
    
    <main>
-     <div>
+
+     <div class="tag_view">
        現在絞り込び表示しているタグ:<%=  params[:symptom] %>
      </div>
     
         <% @goods.each do |good| %>
-        
-          <article class="col-sm-6">
+          <article class="col-sm-6 allgoodscontainer">
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">
@@ -28,18 +28,27 @@
             </div>
           
             <div class="panel-body">
-              <span>
-                <%= image_tag good.photo if good.photo.present?%>
-              </span>
-              
+              <div>
+                <div class="allgoodsphoto">
+                  <%= (image_tag good.photo, :size => '300x300') if good.photo.present?%>
+                </div>
+              </div>
+              <div>
+                <%= render 'index' , good:  good %>
+                <% if user_signed_in? %>
+                    <% if current_user.admin? %> 
+                      <%= render 'form' , good:  good %>
+                    <% end %>
+                <% end %>
+              </div>
               <div>
                 <%= simple_format(good.text) %>
               </div>
+             
+                <div class="blue_large_btn center-block">
+                  <%= link_to "商品詳細", good.page , { :class => "blue_large_btn btn btn-info btn-lg" }  %>
+                </div>
               
-              <div>
-                <%= render 'index' , good:  good %>
-                <%= render 'form' , good:  good %>
-              </div>
             </div>
           </div>
           </article>

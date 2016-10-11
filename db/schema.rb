@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161007142229) do
     t.string   "symptom"
     t.string   "text"
     t.string   "photo"
+    t.string   "page"
   end
 
   create_table "inquiries", force: :cascade do |t|

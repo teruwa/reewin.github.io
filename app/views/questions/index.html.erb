@@ -6,16 +6,22 @@
 <br>
   回答:
 <%= question.answer %>
-        (
-<%= link_to "edit" , edit_question_path(question) %>
-<%= link_to "destroy" , question , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-)
+    <% if user_signed_in? %>
+    <% if current_user.admin? %>
+            (
+    <%= link_to "edit" , edit_question_path(question) %>
+    <%= link_to "destroy" , question , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+    )
+    <% end %>
+    <% end %>
       <br>
+      <hr>
 <% end %>
 </div>
 
 
-
+<% if user_signed_in? %>
 <% if current_user.admin? %>
     <%= render 'form' %>
+<% end %>
 <% end %>

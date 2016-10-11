@@ -13,9 +13,11 @@
                   <h3><%= announces.title %></h3>
                   <br>
                   <%= announces.body %>
+                  <% if user_signed_in? %>
                   <% if current_user.admin? %>  
                   (<%= link_to "edit" , edit_announce_path(announces) %>
                   <%= link_to "destroy" , announce_path(announces) , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>)
+                  <% end %>
                   <% end %>
                   <br>
               <% end %> 
@@ -23,7 +25,7 @@
             
           </div>
         </div>
-        <div class="col-sm-1" style="background-color:yellow;">右空白</div>
+        
      </div>
 </div>
 
