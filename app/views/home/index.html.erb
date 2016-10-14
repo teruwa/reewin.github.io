@@ -5,71 +5,95 @@
     -->
   </script>
   
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div id="tn-carousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="5"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+      <li data-target="#tn-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#tn-carousel" data-slide-to="1"></li>
+    <li data-target="#tn-carousel" data-slide-to="2"></li>
+    <li data-target="#tn-carousel" data-slide-to="3"></li>
+    <li data-target="#tn-carousel" data-slide-to="4"></li>
+    <li data-target="#tn-carousel" data-slide-to="5"></li>
+    <li data-target="#tn-carousel" data-slide-to="6"></li>
+    <li data-target="#tn-carousel" data-slide-to="7"></li>
     </ol>
    
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-         <%= image_tag("slick/Energy Enhancer.jpg", :class => "photoincarousel", ) %>
-        <div class="carousel-caption">
-          <h1>Energy Enhancer</h1>
+        <div class="item-mask">
+         <%= image_tag("slick/all.png", :class => "photoincarousel", ) %>
+         <div class="carousel-caption">
+            <h1>Energy Enhancer</h1>
             <p>あなたに、活力を。</p>
+         </div>
         </div>
       </div>
       <div class="item">
-        <%= image_tag("slick/IceWave.jpg", :class => "photoincarousel", ) %>
+       <div class="item-mask">
+         <%= image_tag("slick/tunami1.png", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
-          <h1>IceWave</h1>
+            <h1>IceWave</h1>
+            <p>1</p>
         </div>
+       </div>
       </div>
       <div class="item">
-        <%= image_tag("slick/Silent Nights.jpg", :class => "photoincarousel", ) %>
+       <div class="item-mask">
+         <%= image_tag("slick/syageki.png", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
-          <h1>Silent Nights</h1>
+            <h1>Silent Nights</h1>
         </div>
+       </div>
       </div>
       <div class="item">
-        <%= image_tag("slick/SP6 Complete.jpg", :class => "photoincarousel", ) %>
+       <div class="item-mask">
+         <%= image_tag("slick/syoumei.png", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>SP6 Complete</h1>
         </div>
+       </div>
       </div>
       <div class="item">
-        <%= image_tag("slick/Y-Age Aeon.jpg", :class => "photoincarousel", ) %>
+       <div class="item-mask">
+          <%= image_tag("slick/ethos.png", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Y-Age Aeon</h1>
         </div>
+       </div>
       </div>
       <div class="item">
-        <%= image_tag("slick/Y-Age Carnosine.jpg", :class => "photoincarousel", ) %>
+       <div class="item-mask">
+         <%= image_tag("slick/newyorc1.png", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Y-Age Carnosine</h1>
         </div>
+       </div>
       </div>
       <div class="item">
-        <%= image_tag("slick/Y-Age_Glutathione.jpg", :class => "photoincarousel", ) %>
+       <div class="item-mask"> 
+         <%= image_tag("slick/ibento.png", :class => "photoincarousel", ) %>
         <div class="carousel-caption">
           <h1>Glutathione</h1>
         </div>
+       </div>
+      </div>
+      <div class="item">
+       <div class="item-mask"> 
+         <%= image_tag("slick/youkoso.png", :class => "photoincarousel", ) %>
+        <div class="carousel-caption">
+          <h1>Glutathione</h1>
+        </div>
+       </div>
       </div>
     </div>
    
     <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
+    <a class="left carousel-control" href="#tn-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <a class="right carousel-control" href="#tn-carousel" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
